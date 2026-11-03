@@ -1,0 +1,30 @@
+schema: '2.0'
+stages:
+  prepare_features:
+    cmd: python src/prepare_features.py
+    deps:
+    - path: data/raw/athletes.csv
+      hash: md5
+      md5: ade8057a9ad4350dfade9180f021a96d
+      size: 71546909
+    - path: src/config.py
+      hash: md5
+      md5: 7b9334642feddbf478ab295644974020
+      size: 1609
+    - path: src/prepare_features.py
+      hash: md5
+      md5: c04073c85ed821fd9995b586fa3a2255
+      size: 4533
+    outs:
+    - path: data/features/athlete_features_v1.parquet
+      hash: md5
+      md5: ae7c6a28565a43236be3142d8d3399dc
+      size: 299153
+    - path: data/features/athlete_features_v2.parquet
+      hash: md5
+      md5: 1e5ee913bc2c57fa04cc58afa86977a7
+      size: 410439
+    - path: data/features/labels.parquet
+      hash: md5
+      md5: 689c73bdc133f153f0d60c9d843226af
+      size: 247339

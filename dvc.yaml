@@ -1,0 +1,11 @@
+stages:
+  prepare_features:
+    cmd: python src/prepare_features.py
+    deps:
+    - data/raw/athletes.csv
+    - src/config.py
+    - src/prepare_features.py
+    outs:
+    - data/features/athlete_features_v1.parquet
+    - data/features/athlete_features_v2.parquet
+    - data/features/labels.parquet
