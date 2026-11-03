@@ -33,6 +33,7 @@ def clean(raw: pd.DataFrame) -> pd.DataFrame:
     df = df[(df.deadlift > 0) & (df.deadlift <= cap)]
     df = df[df.candj.between(0, 395, inclusive="right") & df.snatch.between(0, 496, inclusive="right")
             & df.backsq.between(0, 1069, inclusive="right")]
+    df = df[(df[LIFTS] >= 20).all(axis=1)]   # drop implausibly tiny lifts (EDA finding F7)
     for col in ["background", "experience", "schedule", "howlong", "eat"]:
         df = df[~df[col].str.contains("Decline to answer", na=False)]
     return df
