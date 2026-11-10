@@ -8,3 +8,7 @@ data/interim/
 feature_repo/registry.db
 feature_repo/online_store.db*
 data/automl/
+
+mlruns/
+mlflow.db
+emissions*.csv
