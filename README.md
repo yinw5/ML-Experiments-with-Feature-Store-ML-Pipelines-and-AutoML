@@ -54,3 +54,45 @@ seed 42).
 4. python src/train_pipeline.py
 5. python src/compare_runs.py
 6. mlflow ui --backend-store-uri sqlite:///mlflow.db
+
+## Part B: AutoML
+
+Tools: DataRobot (no-code) and H2O AutoML (full-code, `h2o_automl.ipynb`). Both used the
+same data as Part A (24,041 train / 6,011 test athletes, 15 features, target total_lift).
+H2O outputs (leaderboards, comparison table, feature importance) are in `reports/automl/`.
+
+| Approach | Validation RMSE | Test RMSE |
+|---|---|---|
+| Part A v2_small (hand-built) | 147.8 (5-fold CV) | 139.4 |
+| H2O all features (stacked ensemble) | 139.5 (CV) | 138.6 |
+| H2O top 3 features | 173.8 (CV) | 172.6 |
+| DataRobot all features (best: M34, XGBoost) | 138.4 | not scored |
+
+Top 5 features: DataRobot is_male, weight, bmi, age, howlong_years. H2O is_male, weight, bmi, age, height.
+Top 3 features used for the second run: is_male, weight, bmi.
+
+### DataRobot screenshots (no-code)
+
+**Data preview**
+![Data preview](reports/datarobot/data_preview.png)
+
+**Target setup**
+![Target setup](reports/datarobot/target_setup.png)
+
+**Partitioning**
+![Partitioning](reports/datarobot/partitioning.png)
+
+**Leaderboard, all features**
+![Leaderboard, all features](reports/datarobot/leaderboard_all_features.png)
+
+**Speed vs accuracy, all features**
+![Speed vs accuracy, all features](reports/datarobot/speed_vs_accuracy_all_features.png)
+
+**Feature Impact**
+![Feature Impact](reports/datarobot/feature_impact.png)
+
+**Leaderboard, top 3 features**
+![Leaderboard, top 3 features](reports/datarobot/leaderboard_top3_features.png)
+
+**Speed vs accuracy, top 3 features**
+![Speed vs accuracy, top 3 features](reports/datarobot/speed_vs_accuracy_top3_features.png)
