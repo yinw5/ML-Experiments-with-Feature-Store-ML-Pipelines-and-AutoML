@@ -3,7 +3,7 @@
 ## Dataset
 athletes.csv (423,006 rows). Cleaned to 30,052 athletes (range filters, sex-specific
 deadlift cap, dropped "Decline to answer"). Target: total_lift = deadlift + candj +
-snatch + backsq. The four lifts are excluded from the features because they sum to
+snatch + backsq. Four lifts are excluded from the features because they sum to
 the target (leakage).
 
 ## MLOps platform
