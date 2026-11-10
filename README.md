@@ -137,12 +137,12 @@ Screenshots: `reports/datarobot/speed_vs_accuracy_all_features.png` and `speed_v
 - Test score: H2O beat Part A by under 1 lb, which in practice is equal.
 - Speed: Part A took about 2 s; H2O's whole search took about 37 s (about 20x longer) and used about 110x more carbon.
 
-### 8. Is the platform's AutoML no-code, low-code or full-code?
+### 8. AutoML no-code, low-code or full-code?
 
 - DataRobot: **no-code**. Everything was done in the web interface (upload, pick the target, start Autopilot, read the leaderboard and insights, create a feature list). No code was written.
 - H2O AutoML: **full-code**. We wrote Python to start the server, load the data, run `H2OAutoML` and read the results.
 
-### 9. Repeat with H2O AutoML
+### 9. H2O AutoML work
 
 Done in `h2o_automl.ipynb`; the answers for H2O are in the tables above (sections 2, 4, 5, 6, 7). Outputs are saved in `reports/automl/`.
 
